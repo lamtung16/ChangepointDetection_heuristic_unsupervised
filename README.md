@@ -16,13 +16,12 @@ The method computes a *difference score* `d(c)` between these segments defined a
 `d(c) = |m(left segment) - m(right segment)|`
 
 For the **right segment**, the weighted mean is:
-$$
-W_\alpha[i] = \frac{e^{-\alpha i}}{\sum_{k=c}^N e^{-\alpha k}}
-\\
-m(\text{right segment}) = \sum_{i=c}^{N} W_\alpha[i] \cdot X[i]
-$$
 
-For the **left segment**, the sequence is reversed and the same weighted mean formula is applied.
+$$w_\alpha[i] = \frac{e^{-\alpha i}}{\sum_{k=c}^N e^{-\alpha k}}$$
+
+$$m(\text{right segment}) = \sum_{i=c}^{N} w_\alpha[i] \cdot X[i]$$
+
+By default, `α=0.5`. For the **left segment**, the segment time steps are reversed and the same weighted mean formula is applied.
 
 This weighting scheme emphasizes points closer to the candidate changepoint more strongly.
 
