@@ -17,7 +17,9 @@ The method computes a *difference score* `d(c)` between these segments defined a
 
 For the **right segment**, the weighted mean is:
 $$
-m(\text{right segment}) = \frac{1}{N-c} \sum_{i=c}^{N} (\frac{1}{i-c+1})^\alpha \cdot X[i]
+W_\alpha[i] = \frac{e^{-\alpha i}}{\sum_{k=c}^N e^{-\alpha k}}
+\\
+m(\text{right segment}) = \sum_{i=c}^{N} W_\alpha[i] \cdot X[i]
 $$
 
 For the **left segment**, the sequence is reversed and the same weighted mean formula is applied.
